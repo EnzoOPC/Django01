@@ -1,8 +1,12 @@
 from django.shortcuts import render
-from .models import Todo
 from django.views.generic import ListView
 
+from .models import Todo
 
-def todo_list(request):
-    todos = Todo.objects.all()
-    return render(request, "toDos/todo_list.html", {"todos": todos})
+
+# def todo_list(request):
+#     todos = Todo.objects.all()
+#     return render(request, "toDos/todo_list.html", {"todos": todos})
+
+class TodoListView(ListView):
+    model = Todo
